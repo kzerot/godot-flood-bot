@@ -13,4 +13,3 @@ class Helper():
                         "name": row["name"].replace(".xml", ""),
                         "url": row["download_url"]
                     })
-            print(self.class_list)

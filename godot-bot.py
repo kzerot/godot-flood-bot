@@ -15,7 +15,7 @@ def startCommand(bot, update):
 def textMessage(bot, update):
     print(update.message.text)
     response = 'Получил Ваше сообщение: ' + update.message.text
-    bot.send_message(chat_id=update.message.chat_id, text=response)
+    #bot.send_message(chat_id=update.message.chat_id, text=response)
     
 def searchCommand(bot, update, args=[]):
     print("Args, ", args)
@@ -42,8 +42,10 @@ def error_callback(bot, update, error):
 start_command_handler = CommandHandler('start', startCommand)
 search_command_handler = StringCommandHandler("search", searchCommand, pass_args=True)
 text_message_handler = MessageHandler(Filters.text, textMessage)
+
 # Добавляем хендлеры в диспетчер
 dispatcher.add_handler(start_command_handler)
+dispatcher.add_handler(search_command_handler)
 dispatcher.add_handler(text_message_handler)
 dispatcher.add_error_handler(error_callback)
 # Начинаем поиск обновлений
